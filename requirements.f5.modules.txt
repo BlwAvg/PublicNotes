@@ -1,6 +1,6 @@
 ## For the F5 playbooks used, these are the modules that need to be installed in your local host or AWX virtual environment.
 # To install use 'sudo pip install module-name-here'.
-# To install in the awx virtenv the default command is 'sudo docker exec -it awx_task bash'. The 'awx_task' can vary if modified you modified the name of it in the AWX installation configurations. You can view the docker images running using the 'sudo docker images'. Once in the docker virtenv you can install the modules just like you would locally. 
+# To install in the awx virtualenv the default command is 'sudo docker exec -it awx_task bash'. The 'awx_task' can vary if modified you modified the name of it in the AWX installation configurations. You can view the docker images running using the 'sudo docker images'. Once in the docker virtualenv you can install the modules just like you would locally. 
 
 # Required F5 python modules
 netaddr

@@ -1,5 +1,5 @@
 ## To install ansible AWX on Debian 9 - Strech
-# Tested 2/26/2018
+# Tested 2/28/2018
 
 # To build out the base environment
 # Note, you will have to install sudo (https://www.vultr.com/docs/how-to-use-sudo-on-debian-centos-and-freebsd) or do this as root. 
@@ -13,13 +13,13 @@ sudo -H pip install ansible
 # Location of the Awx files, can be done in home directory or wherever
 git clone https://github.com/ansible/awx.git
 
-## Install docker
+## Install docker - This assumes debian architectecture of amd64
 sudo -H apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 sudo -H add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
 sudo apt-get update
 sudo apt-get install docker-ce
-sudo docker run hello-world
+sudo docker run hello-world #this just test that you installed docker correctly and that it is working
 
 ## Edit the inventory in the awx/installer/inventory. Change the pgdocker location to something other than /tmp/pgdocker. 
 That gets wiped on reboot. I change it to /opt/pgdocker.
@@ -37,6 +37,8 @@ host_port=80
 
 ## Go into the AWX install directory and run 
 sudo -H ansible-playbook -i inventory install.yml
+
+## Test connectivity by going to http://127.0.0.1
 
 ## Once install you may need to add additional modules to the AWX environment. To add python modules log into the awx docker environment using the following command:
 sudo docker exec -it awx_task bash
