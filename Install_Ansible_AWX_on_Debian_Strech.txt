@@ -21,5 +21,19 @@ sudo apt-get update
 sudo apt-get install docker-ce
 sudo docker run hello-world
 
+## Edit the inventory in the awx/installer/inventory. Change the pgdocker location to something other than /tmp/pgdocker. 
+That gets wiped on reboot. I change it to /opt/pgdocker.
+------------------
+# Common Docker parameters
+postgres_data_dir=/tmp/pgdocker
+host_port=80
+----------------
+Change to 
+----------------
+# Common Docker parameters
+postgres_data_dir=/opt/pgdocker
+host_port=80
+----------------
+
 ## Go into the AWX install directory and run 
 sudo -H ansible-playbook -i inventory install.yml
