@@ -37,3 +37,6 @@ host_port=80
 
 ## Go into the AWX install directory and run 
 sudo -H ansible-playbook -i inventory install.yml
+
+## Once install you may need to add additional modules to the AWX environment. To add python modules log into the awx docker environment using the following command:
+sudo docker exec -it awx_task bash
